@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopt a Dog - Kindred Creatures</title>
+    <style>
+        :root {
+            --primary: #6EC1E4;
+            --secondary: #A8D5BA;
+            --light: #FDF9F3;
+            --accent: #F07C3E;
+            --dark-blue: #2A3B4C;
+            --text: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: var(--light);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            padding: 1rem 5%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        .nav-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Dog Cards */
+        .dog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .dog-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .dog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dog-image {
+            height: 250px;
+            border-radius: 15px 15px 0 0;
+            overflow: hidden;
+        }
+
+        .dog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dog-info {
+            padding: 1.5rem;
+        }
+
+        .dog-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .dog-tag {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        /* Adoption Form */
+        .adoption-form {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--primary);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            background: var(--accent);
+            color: white;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#adopt" class="nav-link">Adopt</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 style="color: var(--dark-blue); font-size: 2.5rem; margin-bottom: 1rem;">
+                Find Your Perfect Companion
+            </h1>
+            <p style="color: var(--text); max-width: 800px; margin: 0 auto;">
+                Meet our wonderful rescue dogs waiting for their forever homes. Each adoption saves two lives - 
+                the pet you adopt and the one who gets space in our shelter.
+            </p>
+        </div>
+
+        <!-- Dogs Gallery -->
+        <div class="dog-grid">
+            <!-- James - German Shepherd -->
+            <div class="dog-card">
+                <div class="dog-image">
+                    <img src="https://images.unsplash.com/photo-1605559141066-1549783d18e9?auto=format&fit=crop&w=800" 
+                         alt="James the German Shepherd">
+                </div>
+                <div class="dog-info">
+                    <h3 style="color: var(--dark-blue);">James</h3>
+                    <div class="dog-tags">
+                        <span class="dog-tag" style="background: var(--secondary);">3 Years</span>
+                        <span class="dog-tag" style="background: var(--primary);">German Shepherd</span>
+                        <span class="dog-tag" style="background: var(--accent);">Male</span>
+                    </div>
+                    <p style="color: var(--text);">
+                        Loyal protector with excellent training. Great with families, knows basic commands, 
+                        and loves outdoor adventures. Vaccinated and neutered.
+                    </p>
+                    <button class="btn adopt-btn" data-dog="James">Adopt James</button>
+                </div>
+            </div>
+
+            <!-- Buddy - Golden Retriever -->
+            <div class="dog-card">
+                <div class="dog-image">
+                    <img src="https://images.unsplash.com/photo-1591160690555-5debfba289f0?auto=format&fit=crop&w=800" 
+                         alt="Buddy the Golden Retriever">
+                </div>
+                <div class="dog-info">
+                    <h3 style="color: var(--dark-blue);">Buddy</h3>
+                    <div class="dog-tags">
+                        <span class="dog-tag" style="background: var(--secondary);">2 Years</span>
+                        <span class="dog-tag" style="background: var(--primary);">Golden Retriever</span>
+                    </div>
+                    <p style="color: var(--text);">
+                        Friendly and affectionate companion. Excellent with children, loves swimming, 
+                        and always ready to play fetch. Fully vaccinated and microchipped.
+                    </p>
+                    <button class="btn adopt-btn" data-dog="Buddy">Adopt Buddy</button>
+                </div>
+            </div>
+
+            <!-- Daisy - Indian Pariah -->
+            <div class="dog-card">
+                <div class="dog-image">
+                    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=800" 
+                         alt="Daisy the Indian Pariah">
+                </div>
+                <div class="dog-info">
+                    <h3 style="color: var(--dark-blue);">Daisy</h3>
+                    <div class="dog-tags">
+                        <span class="dog-tag" style="background: var(--secondary);">3 Years</span>
+                        <span class="dog-tag" style="background: var(--primary);">Indian Pariah</span>
+                    </div>
+                    <p style="color: var(--text);">
+                        Smart and adaptable street survivor. House-trained, loves car rides, 
+                        and gets along with other pets. Ready for her forever home!
+                    </p>
+                    <button class="btn adopt-btn" data-dog="Daisy">Adopt Daisy</button>
+                </div>
+            </div>
+
+            <!-- Rocky - Lab Mix -->
+            <div class="dog-card">
+                <div class="dog-image">
+                    <img src="https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?auto=format&fit=crop&w=800" 
+                         alt="Rocky the Lab Mix">
+                </div>
+                <div class="dog-info">
+                    <h3 style="color: var(--dark-blue);">Rocky</h3>
+                    <div class="dog-tags">
+                        <span class="dog-tag" style="background: var(--secondary);">4 Years</span>
+                        <span class="dog-tag" style="background: var(--primary);">Lab Mix</span>
+                    </div>
+                    <p style="color: var(--text);">
+                        Gentle giant with a heart of gold. Excellent watchdog, house-trained, 
+                        and loves leisurely walks. Perfect for first-time owners.
+                    </p>
+                    <button class="btn adopt-btn" data-dog="Rocky">Adopt Rocky</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Adoption Form -->
+        <form class="adoption-form" id="adoptionForm">
+            <h2 style="text-align: center; color: var(--dark-blue); margin-bottom: 1.5rem;">
+                Adoption Application Form
+            </h2>
+            <input type="text" class="form-input" placeholder="Full Name" required>
+            <input type="email" class="form-input" placeholder="Email Address" required>
+            <input type="tel" class="form-input" placeholder="Phone Number" required>
+            <textarea class="form-input" placeholder="Full Address" rows="3" required></textarea>
+            <select class="form-input" required>
+                <option value="">Select Dog to Adopt</option>
+                <option>James</option>
+                <option>Buddy</option>
+                <option>Daisy</option>
+                <option>Rocky</option>
+            </select>
+            <button type="submit" class="btn" style="width: 100%;">
+                Submit Application
+            </button>
+        </form>
+    </div>
+
+    <script>
+        // Form Submission Handler
+        document.getElementById('adoptionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your application!\n\nOur adoption team will contact you within 24 hours to discuss next steps.');
+            this.reset();
+        });
+
+        // Adopt Button Handlers
+        document.querySelectorAll('.adopt-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const dogName = this.dataset.dog;
+                const select = document.querySelector('select');
+                select.value = dogName;
+                window.scrollTo({
+                    top: document.getElementById('adoptionForm').offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

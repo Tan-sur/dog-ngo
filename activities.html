@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindred Creatures - 24/7 Activities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6EC1E4;
+            --secondary: #A8D5BA;
+            --light: #FDF9F3;
+            --accent: #F07C3E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .activity-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                        url('https://images.unsplash.com/photo-1554696009-5e6a21774330') center/cover;
+            min-height: 60vh;
+            color: white;
+            padding: 50px 5%;
+            text-align: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Video Section */
+        .documentary-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 5%;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-caption {
+            text-align: center;
+            margin: 20px 0 40px;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* 24h Timeline */
+        .full-timeline {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 5%;
+            position: relative;
+        }
+
+        .timeline-road {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            background: var(--primary);
+            top: 40px;
+            bottom: 40px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 60px 0;
+            width: calc(50% - 40px);
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-time {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-time {
+            right: -100px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-time {
+            left: -100px;
+        }
+
+        .timeline-content {
+            padding: 15px;
+        }
+
+        .shift-tag {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-bottom: 10px;
+        }
+
+        .morning { background: var(--secondary); }
+        .afternoon { background: var(--primary); }
+        .night { background: #2c3e50; color: white; }
+
+        @media (max-width: 768px) {
+            .timeline-road {
+                left: 30px;
+            }
+
+            .timeline-item {
+                width: calc(100% - 80px);
+                margin-left: 80px;
+            }
+
+            .timeline-item:nth-child(even) {
+                margin-left: 80px;
+            }
+
+            .timeline-time {
+                left: -60px !important;
+                right: auto !important;
+                width: 60px;
+                height: 60px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="activity-header">
+        <h1>Round-the-Clock Rescue Operations</h1>
+        <p>24/7 commitment to animal welfare</p>
+    </header>
+
+    <!-- Documentary Video -->
+    <section class="documentary-section">
+        <div class="video-container">
+            <video controls poster="shelter-thumbnail.jpg">
+                <source src="shelter-documentary.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- 24h Timeline -->
+    <div class="full-timeline">
+        <div class="timeline-road"></div>
+        <!-- 6 AM -->
+        <div class="timeline-item">
+            <div class="timeline-time">06:00</div>
+            <div class="timeline-content">
+                <span class="shift-tag morning">Morning Shift</span>
+                <h4>Morning Routine</h4>
+                <ul>
+                    <li>Staff briefing</li>
+                    <li>First walk rounds</li>
+                    <li>Breakfast preparation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Continue adding timeline items... -->
+
+        <!-- 12 PM -->
+        <div class="timeline-item">
+            <div class="timeline-time">12:00</div>
+            <div class="timeline-content">
+                <span class="shift-tag afternoon">Afternoon Shift</span>
+                <h4>Midday Activities</h4>
+                <ul>
+                    <li>Special enrichment activities</li>
+                    <li>Veterinary consultations</li>
+                    <li>Volunteer orientation</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6 PM -->
+        <div class="timeline-item">
+            <div class="timeline-time">18:00</div>
+            <div class="timeline-content">
+                <span class="shift-tag afternoon">Evening Shift</span>
+                <h4>Evening Routine</h4>
+                <ul>
+                    <li>Final health checks</li>
+                    <li>Medication distribution</li>
+                    <li>Facility cleaning</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 10 PM -->
+        <div class="timeline-item">
+            <div class="timeline-time">22:00</div>
+            <div class="timeline-content">
+                <span class="shift-tag night">Night Shift</span>
+                <h4>Night Watch</h4>
+                <p>Overnight monitoring of all residents begins</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.timeline-item').forEach((el) => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(50px)";
+            el.style.transition = "1s all";
+            observer.observe(el);
+        });
+
+        // Video Controls
+        const video = document.querySelector('video');
+        video.controls = true;
+    </script>
+</body>
+</html>

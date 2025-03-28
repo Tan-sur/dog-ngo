@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Kindred Creatures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6EC1E4;
+            --secondary: #A8D5BA;
+            --light: #FDF9F3;
+            --accent: #F07C3E;
+            --dark: #2A3B4C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: var(--light);
+        }
+
+        /* Logo Header */
+        .logo-header {
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            height: 60px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            margin-left: auto;
+        }
+
+        .nav-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        /* Contact Content */
+        .contact-container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+        }
+
+        .btn-submit {
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            color: var(--dark);
+            transition: color 0.3s;
+        }
+
+        .social-icon:hover {
+            color: var(--accent);
+        }
+
+        .map-container {
+            margin: 2rem 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo and Navigation -->
+    <header class="logo-header">
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Kindred Creatures Logo" class="logo">
+            <nav class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#adopt" class="nav-link">Adopt</a>
+                <a href="#donate" class="nav-link">Donate</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="contact-container">
+        <h1 style="text-align: center; color: var(--dark); margin-bottom: 1rem;">Get in Touch</h1>
+        <p style="text-align: center; color: var(--dark); max-width: 800px; margin: 0 auto;">
+            Have questions or want to volunteer? We'd love to hear from you!
+        </p>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt fa-2x" style="color: var(--accent); margin-bottom: 1rem;"></i>
+                <h3>Visit Us</h3>
+                <p style="color: var(--dark); margin: 1rem 0;">
+                    123 Animal Rescue Lane<br>
+                    Mumbai, India 400001
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-phone fa-2x" style="color: var(--accent); margin-bottom: 1rem;"></i>
+                <h3>Call Us</h3>
+                <p style="color: var(--dark); margin: 1rem 0;">
+                    +91 22 1234 5678<br>
+                    Mon-Sat: 9AM - 6PM
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-envelope fa-2x" style="color: var(--accent); margin-bottom: 1rem;"></i>
+                <h3>Email Us</h3>
+                <p style="color: var(--dark); margin: 1rem 0;">
+                    contact@kindredcreatures.org<br>
+                    support@kindredcreatures.org
+                </p>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h2 style="text-align: center; color: var(--dark); margin-bottom: 1rem;">Send a Message</h2>
+            <form id="contactForm">
+                <input type="text" class="form-input" placeholder="Your Name" required>
+                <input type="email" class="form-input" placeholder="Your Email" required>
+                <input type="text" class="form-input" placeholder="Subject" required>
+                <textarea class="form-input" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3771.755837292482!2d72.83221331537716!3d19.03345825822714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ced3c67d23e3%3A0x4a1b9769651e8589!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1623931234567!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will respond within 24 hours.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindred Creatures Merchandise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6EC1E4;
+            --secondary: #A8D5BA;
+            --light: #FDF9F3;
+            --accent: #F07C3E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: var(--light);
+            padding: 20px 5%;
+        }
+
+        .merch-header {
+            text-align: center;
+            margin: 40px 0;
+            color: var(--accent);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-views {
+            position: relative;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: opacity 0.3s;
+        }
+
+        .view-buttons {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .view-btn {
+            background: rgba(255,255,255,0.8);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .view-btn.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .size-selector {
+            margin: 15px 0;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .size-btn {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            min-width: 50px;
+        }
+
+        .size-btn.selected {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: white;
+        }
+
+        .specs {
+            margin: 15px 0;
+            display: grid;
+            gap: 10px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .spec-icon {
+            color: var(--accent);
+            width: 20px;
+        }
+
+        .quantity {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .checkout-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #666;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .buy-btn {
+            background: var(--accent);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.3s;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header class="merch-header">
+        <h1>Support Our Cause with Kindred Merch</h1>
+        <p>Every purchase helps rescue and rehabilitate animals in need</p>
+    </header>
+
+    <div class="products-grid">
+        <!-- Rescue Squad T-Shirt -->
+        <div class="product-card">
+            <div class="product-views">
+                <img src="tshirtfront.jpg" alt="T-Shirt Front" class="product-image active" id="tshirtFront">
+                <img src="tshirtback.jpg" alt="T-Shirt Back" class="product-image" id="tshirtBack" style="display: none;">
+                <div class="view-buttons">
+                    <button class="view-btn active" onclick="showView('front')">Front</button>
+                    <button class="view-btn" onclick="showView('back')">Back</button>
+                </div>
+            </div>
+            <h3>Rescue Squad T-Shirt</h3>
+            <p>₹799</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <i class="fas fa-tshirt spec-icon"></i>
+                    100% Organic Cotton
+                </div>
+                <div class="spec-item">
+                    <i class="fas fa-ruler-horizontal spec-icon"></i>
+                    Sizes: S-XXL
+                </div>
+                <div class="spec-item">
+                    <i class="fas fa-hand-holding-water spec-icon"></i>
+                    Machine wash cold
+                </div>
+            </div>
+            <div class="size-selector">
+                <button class="size-btn" onclick="selectSize(this)">S</button>
+                <button class="size-btn" onclick="selectSize(this)">M</button>
+                <button class="size-btn" onclick="selectSize(this)">L</button>
+                <button class="size-btn" onclick="selectSize(this)">XL</button>
+            </div>
+            <input type="number" min="1" value="1" class="quantity">
+        </div>
+
+        <!-- Animal Friend Badges -->
+        <div class="product-card">
+            <div class="product-views">
+                <img src="badges.jpg" alt="Animal Badges" class="product-image">
+            </div>
+            <h3>Animal Friend Badges</h3>
+            <p>₹299 (Set of 4)</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <i class="fas fa-shield-alt spec-icon"></i>
+                    Weather-resistant enamel
+                </div>
+                <div class="spec-item">
+                    <i class="fas fa-ruler spec-icon"></i>
+                    3cm diameter
+                </div>
+                <div class="spec-item">
+                    <i class="fas fa-safety-pin spec-icon"></i>
+                    Secure butterfly clutch
+                </div>
+            </div>
+            <input type="number" min="1" value="1" class="quantity">
+        </div>
+
+        <!-- Eco Tote Bag -->
+        <div class="product-card">
+            <div class="product-views">
+                <img src="totebag.jpg" alt="Eco Tote Bag" class="product-image">
+            </div>
+            <h3>Eco-Friendly Tote Bag</h3>
+            <p>₹599</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <i class="fas fa-leaf spec-icon"></i>
+                    100% Organic Canvas
+                </div>
+                <div class="spec-item">
+                    <i class="fas fa-weight-hanging spec-icon"></i>
+                    Holds up to 15kg
+                </div>
+                <div class="spec-item">
+                    <i class="fas fa-ruler-combined spec-icon"></i>
+                    40 × 40 × 10 cm
+                </div>
+            </div>
+            <div class="size-selector">
+                <button class="size-btn" onclick="selectSize(this)">Standard</button>
+            </div>
+            <input type="number" min="1" value="1" class="quantity">
+        </div>
+
+        <!-- Animal Love Mug -->
+        <div class="product-card">
+            <div class="product-views">
+                <img src="mug.jpg" alt="Animal Love Mug" class="product-image">
+            </div>
+            <h3>"Animal Love" Ceramic Mug</h3>
+            <p>₹449</p>
+            <div class="specs">
+                <div class="spec-item">
+                    <i class="fas fa-mug-hot spec-icon"></i>
+                    350ml Capacity
+                </div>
+                <div class="spec-item">
+                    <i class="fas fa-temperature-high spec-icon"></i>
+                    Microwave & Dishwasher Safe
+                </div>
+                <div class="spec-item">
+                    <i class="fas fa-paint-brush spec-icon"></i>
+                    Full-color print
+                </div>
+            </div>
+            <div class="size-selector">
+                <button class="size-btn" onclick="selectSize(this)">Standard</button>
+            </div>
+            <input type="number" min="1" value="1" class="quantity">
+        </div>
+    </div>
+
+    <!-- Checkout Form -->
+    <form class="checkout-form" onsubmit="handleSubmit(event)">
+        <h2>Delivery Information</h2>
+        <div class="form-group">
+            <label>Full Name:</label>
+            <input type="text" required>
+        </div>
+        <div class="form-group">
+            <label>Address:</label>
+            <textarea rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label>City:</label>
+            <input type="text" required>
+        </div>
+        <div class="form-group">
+            <label>Pincode:</label>
+            <input type="text" pattern="[0-9]{6}" required>
+        </div>
+        <div class="form-group">
+            <label>Phone Number:</label>
+            <input type="tel" pattern="[0-9]{10}" required>
+        </div>
+        <button type="submit" class="buy-btn">Complete Purchase</button>
+    </form>
+
+    <script>
+        // Product View Toggle
+        function showView(view) {
+            document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.getElementById('tshirtFront').style.display = view === 'front' ? 'block' : 'none';
+            document.getElementById('tshirtBack').style.display = view === 'back' ? 'block' : 'none';
+        }
+
+        // Size Selection
+        function selectSize(btn) {
+            btn.parentElement.querySelectorAll('.size-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        // Form Handling
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your purchase! Our team will contact you for payment details.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
